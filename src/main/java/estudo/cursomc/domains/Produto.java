@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,6 +34,7 @@ public class Produto implements Serializable {
     private String nome;
     private double preco;
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(// @formatter:off
         name = "PRODUTO_CATEGORIA", 
